@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Francesca Frattini — Project Manager & Front-end Developer</title>
+  <meta name="description" content="CV di Francesca Frattini, Project Manager e Front-end Developer con background nel design. Frankfurt am Main.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --pink: #b8697a;
+      --pink-light: #f5e8eb;
+      --pink-mid: #d4a0ad;
+      --beige: #f2ede4;
+      --beige-dark: #e8e0d4;
+      --hazel: #9a7a5a;
+      --hazel-dark: #6e5438;
+      --text-main: #2c2018;
+      --text-muted: #7a6a58;
+      --border: rgba(154,122,90,0.18);
+      --white: #faf8f4;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--white);
+      color: var(--text-main);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(250,248,244,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 3rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 58px;
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 18px;
+      letter-spacing: 0.04em;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+    .nav-links { list-style: none; display: flex; gap: 2.5rem; }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--pink); }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; font-size: 22px; color: var(--text-main); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: calc(100vh - 58px);
+      background: var(--beige);
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; right: -120px; top: -120px;
+      width: 600px; height: 600px;
+      background: var(--pink-light);
+      border-radius: 50%;
+      opacity: 0.6;
+    }
+    #hero::after {
+      content: '';
+      position: absolute; left: -60px; bottom: -80px;
+      width: 300px; height: 300px;
+      background: var(--beige-dark);
+      border-radius: 50%;
+      opacity: 0.5;
+    }
+    .hero-inner {
+      max-width: 1000px; margin: 0 auto; padding: 4rem 3rem;
+      display: grid; grid-template-columns: 1fr 280px; gap: 5rem;
+      align-items: center; position: relative; z-index: 1; width: 100%;
+    }
+    .hero-eyebrow {
+      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--pink); margin-bottom: 1.2rem;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-eyebrow::after { content: ''; flex: 1; height: 1px; background: var(--pink-mid); max-width: 60px; }
+    .hero-name {
+      font-family: var(--serif);
+      font-size: 68px; font-weight: 400; line-height: 1.0;
+      color: var(--text-main); margin-bottom: 0.8rem;
+    }
+    .hero-role {
+      font-family: var(--serif);
+      font-size: 22px; font-style: italic;
+      color: var(--hazel); margin-bottom: 1.8rem;
+    }
+    .hero-tagline {
+      font-size: 15px; line-height: 1.8;
+      color: var(--text-muted); max-width: 520px; margin-bottom: 2.5rem;
+    }
+    .hero-ctas { display: flex; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+    .btn {
+      padding: 11px 28px;
+      font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+      text-decoration: none; cursor: pointer;
+      font-family: var(--sans); font-weight: 500;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    .btn-primary { background: var(--pink); color: white; border: 1px solid var(--pink); }
+    .btn-primary:hover { background: var(--hazel-dark); border-color: var(--hazel-dark); }
+    .btn-secondary { background: transparent; color: var(--hazel); border: 1px solid var(--hazel); }
+    .btn-secondary:hover { background: var(--hazel); color: white; }
+    .hero-meta { display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: var(--text-muted); }
+    .hero-meta a { color: var(--pink); text-decoration: none; }
+    .hero-meta a:hover { text-decoration: underline; }
+    .hero-meta span { display: flex; align-items: center; gap: 8px; }
+    .hero-photo-frame {
+      width: 260px; height: 320px;
+      background: var(--pink-light);
+      border: 2px solid var(--pink-mid);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .hero-photo-frame::before {
+      content: '';
+      position: absolute; top: 12px; left: 12px; right: -12px; bottom: -12px;
+      border: 1px solid var(--beige-dark);
+      z-index: -1;
+    }
+    .hero-photo-initials {
+      font-family: var(--serif);
+      font-size: 72px; font-weight: 400;
+      color: var(--pink-mid);
+      letter-spacing: -2px;
+    }
+
+    /* ── COMMON SECTION STYLES ── */
+    .section { padding: 6rem 3rem; max-width: 1000px; margin: 0 auto; }
+    .full-section { padding: 6rem 0; }
+    .full-section .section-inner { max-width: 1000px; margin: 0 auto; padding: 0 3rem; }
+    .section-eyebrow {
+      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--pink); margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: 42px; font-weight: 400; color: var(--text-main);
+      margin-bottom: 0.4rem; line-height: 1.1;
+    }
+    .section-bar { width: 36px; height: 2px; background: var(--pink); margin-bottom: 3rem; }
+
+    /* ── ABOUT ── */
+    #about { background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 5rem; align-items: start; }
+    .about-text p { font-size: 15px; line-height: 1.85; color: var(--text-muted); margin-bottom: 1.2rem; }
+    .about-text p:last-child { margin-bottom: 0; }
+    .info-list { display: flex; flex-direction: column; gap: 1.2rem; }
+    .info-row { display: flex; gap: 14px; align-items: flex-start; }
+    .info-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--pink-mid); margin-top: 6px; flex-shrink: 0;
+    }
+    .info-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--pink); display: block; margin-bottom: 2px; }
+    .info-value { font-size: 14px; color: var(--text-main); }
+
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--beige); }
+    .timeline { position: relative; }
+    .timeline::before {
+      content: ''; position: absolute; left: 0; top: 4px; bottom: 0;
+      width: 1px; background: linear-gradient(to bottom, var(--pink-mid), transparent);
+    }
+    .job { padding-left: 2.5rem; margin-bottom: 3.5rem; position: relative; }
+    .job:last-child { margin-bottom: 0; }
+    .job-dot {
+      position: absolute; left: -5px; top: 5px;
+      width: 11px; height: 11px; border-radius: 50%;
+      background: var(--pink); border: 2px solid var(--beige);
+    }
+    .job-title { font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--text-main); margin-bottom: 2px; }
+    .job-company { font-size: 14px; color: var(--pink); margin-bottom: 4px; }
+    .job-date { font-size: 12px; color: var(--text-muted); letter-spacing: 0.06em; font-style: italic; margin-bottom: 1rem; }
+    .job-points { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .job-points li { font-size: 14px; line-height: 1.7; color: var(--text-muted); padding-left: 1.2rem; position: relative; }
+    .job-points li::before { content: '—'; position: absolute; left: 0; color: var(--pink-mid); }
+
+    /* ── EDUCATION ── */
+    #education { background: var(--white); }
+    .edu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .edu-card {
+      padding: 1.5rem 1.5rem 1.5rem 1.8rem;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--pink);
+      background: var(--white);
+      transition: border-color 0.2s;
+    }
+    .edu-card:hover { border-left-color: var(--hazel); }
+    .edu-degree { font-family: var(--serif); font-size: 17px; color: var(--text-main); margin-bottom: 4px; }
+    .edu-school { font-size: 13px; color: var(--hazel); margin-bottom: 4px; }
+    .edu-year { font-size: 12px; color: var(--text-muted); font-style: italic; }
+
+    /* ── SKILLS ── */
+    #skills { background: var(--beige); }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .skill-card {
+      background: var(--white);
+      padding: 2rem;
+      border: 1px solid var(--border);
+    }
+    .skill-card-eyebrow {
+      font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--pink); margin-bottom: 1rem;
+      padding-bottom: 0.8rem; border-bottom: 1px solid var(--border);
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      padding: 5px 11px;
+      background: var(--pink-light);
+      color: var(--hazel-dark);
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .tag.featured { background: var(--pink); color: white; }
+
+    /* ── LANGUAGES ── */
+    #languages { background: var(--white); padding-bottom: 5rem; }
+    .lang-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .lang-bars { display: flex; flex-direction: column; gap: 1.5rem; }
+    .lang-row { display: flex; flex-direction: column; gap: 6px; }
+    .lang-header { display: flex; justify-content: space-between; align-items: baseline; }
+    .lang-name { font-family: var(--serif); font-size: 18px; color: var(--text-main); }
+    .lang-level { font-size: 12px; color: var(--text-muted); font-style: italic; }
+    .lang-track { height: 2px; background: var(--beige-dark); }
+    .lang-fill { height: 2px; background: var(--pink); }
+    .volunteer-card {
+      background: var(--beige);
+      padding: 2rem;
+      border-left: 3px solid var(--pink-mid);
+    }
+    .volunteer-title { font-family: var(--serif); font-size: 20px; color: var(--text-main); margin-bottom: 4px; }
+    .volunteer-org { font-size: 13px; color: var(--hazel); margin-bottom: 4px; }
+    .volunteer-date { font-size: 12px; color: var(--text-muted); font-style: italic; margin-bottom: 1rem; }
+    .volunteer-desc { font-size: 14px; line-height: 1.75; color: var(--text-muted); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--text-main);
+      color: rgba(255,255,255,0.4);
+      padding: 2.5rem 3rem;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 12px; letter-spacing: 0.06em;
+    }
+    footer .footer-name { font-family: var(--serif); font-size: 16px; color: rgba(255,255,255,0.7); }
+    footer a { color: var(--pink-mid); text-decoration: none; }
+    footer a:hover { color: white; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 1.5rem; }
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+      .nav-links.open {
+        display: flex; flex-direction: column; gap: 0;
+        position: absolute; top: 58px; left: 0; right: 0;
+        background: var(--white); border-bottom: 1px solid var(--border);
+        padding: 1rem 1.5rem;
+      }
+      .nav-links.open li a { display: block; padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-photo-frame { width: 160px; height: 200px; }
+      .hero-name { font-size: 48px; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .edu-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .lang-grid { grid-template-columns: 1fr; }
+      .section { padding: 4rem 1.5rem; }
+      .full-section .section-inner { padding: 0 1.5rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">Francesca Frattini</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">Profilo</a></li>
+    <li><a href="#experience">Esperienza</a></li>
+    <li><a href="#education">Formazione</a></li>
+    <li><a href="#skills">Competenze</a></li>
+    <li><a href="#languages">Lingue</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Portfolio & CV</div>
+      <h1 class="hero-name">Francesca<br>Frattini</h1>
+      <p class="hero-role">Project Manager & Front-end Developer</p>
+      <p class="hero-tagline">Project Manager e Web Developer con background nel design. Unisco sviluppo front-end, coordinamento di team multidisciplinari e gestione strategica di progetti digitali complessi.</p>
+      <div class="hero-ctas">
+        <a href="#experience" class="btn btn-primary">Scopri il mio percorso</a>
+        <a href="mailto:francescafrattini092@gmail.com" class="btn btn-secondary">Contattami</a>
+      </div>
+      <div class="hero-meta">
+        <span>📍 Frankenallee 25, 60327 Frankfurt am Main</span>
+        <span>📞 DE: <a href="tel:+4917621904870">+49 17621904870</a> · IT: <a href="tel:+393423757678">+39 3423757678</a></span>
+        <span>✉️ <a href="mailto:francescafrattini092@gmail.com">francescafrattini092@gmail.com</a></span>
+      </div>
+    </div>
+    <div class="hero-photo-frame" aria-hidden="true">
+      <span class="hero-photo-initials">FF</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-eyebrow">Chi sono</div>
+  <h2 class="section-title">Profilo</h2>
+  <div class="section-bar"></div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Project Manager e Web Developer con esperienza nella gestione e nel delivery di progetti digitali complessi in ambienti strutturati e multidisciplinari. Con un background nel design, affronto i progetti con un approccio strategico, bilanciando user experience, qualità tecnica e obiettivi di business.</p>
+      <p>Nel mio ruolo combino expertise di sviluppo front-end con forti capacità organizzative e di coordinamento, supervisionando pianificazione, gestione delle risorse, controllo delle timeline e relazioni con i clienti.</p>
+      <p>Lavoro in modo metodico, con forte attenzione al dettaglio e un approccio orientato ai risultati, favorendo la collaborazione tra team tecnici e creativi per consegnare soluzioni digitali scalabili e allineate all'identità di brand.</p>
+    </div>
+    <div class="info-list">
+      <div class="info-row">
+        <div class="info-dot"></div>
+        <div>
+          <span class="info-label">Residenza</span>
+          <div class="info-value">Frankfurt am Main, Germania</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-dot"></div>
+        <div>
+          <span class="info-label">Data di nascita</span>
+          <div class="info-value">18 febbraio 1992</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-dot"></div>
+        <div>
+          <span class="info-label">Nazionalità</span>
+          <div class="info-value">Italiana</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-dot"></div>
+        <div>
+          <span class="info-label">Ruolo attuale</span>
+          <div class="info-value">PM & Front-end Developer<br>Digital360 Connect</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-dot"></div>
+        <div>
+          <span class="info-label">Volontariato</span>
+          <div class="info-value">Rifugio Animali Recanati<br>2018 – 2021</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<div class="full-section" id="experience" style="background: var(--beige);">
+  <div class="section-inner">
+    <div class="section-eyebrow">Carriera</div>
+    <h2 class="section-title">Esperienza</h2>
+    <div class="section-bar"></div>
+    <div class="timeline">
+
+      <div class="job">
+        <div class="job-dot"></div>
+        <div class="job-title">Project Manager & Front-End Web Developer</div>
+        <div class="job-company">Digital360 Connect</div>
+        <div class="job-date">Maggio 2024 – Presente</div>
+        <ul class="job-points">
+          <li>Gestione operativa e strategica di progetti di sviluppo web e digital marketing, con coinvolgimento diretto in tutte le fasi del ciclo di vita.</li>
+          <li>Raccolta e analisi dei requisiti, definizione degli obiettivi e strutturazione di piani di progetto dettagliati, traducendo le esigenze del cliente in task assegnati alle risorse più adatte.</li>
+          <li>Coordinamento di team multidisciplinari (sviluppo, design, marketing), monitoraggio continuo di avanzamento, qualità e timeline tramite strumenti di project management.</li>
+          <li>Gestione della comunicazione con il cliente: allineamento continuativo, gestione delle priorità, change control e risoluzione dei problemi.</li>
+          <li>Sviluppo front-end in parallelo, garantendo consistenza tecnica, ottimizzazione delle performance e alta qualità del codice.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-dot"></div>
+        <div class="job-title">Front-End Web Developer</div>
+        <div class="job-company">Del Monte & Partner Comunicazione S.r.l.</div>
+        <div class="job-date">Giugno 2023 – Maggio 2024</div>
+        <ul class="job-points">
+          <li>Sviluppo di soluzioni front-end custom nell'ecosistema HubSpot: moduli personalizzati, template, landing page, siti web, blog e automazione email.</li>
+          <li>Collaborazione con team creativi e account per tradurre concept visivi e strategie di comunicazione in interfacce funzionali, responsive e orientate alla conversione.</li>
+          <li>Manutenzione e sviluppo di siti WordPress: aggiornamenti, ottimizzazione delle performance e adattamenti in base ai requisiti del cliente.</li>
+          <li>Forte attenzione alla user experience, alla pulizia del codice e alla riusabilità dei componenti.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-dot"></div>
+        <div class="job-title">Exhibition Designer</div>
+        <div class="job-company">iGuzzini Illuminazione S.p.A.</div>
+        <div class="job-date">2018 – Dicembre 2021</div>
+        <ul class="job-points">
+          <li>Progettazione di spazi espositivi, showroom e strumenti di comunicazione per lanci di prodotto in contesti industriali e internazionali.</li>
+          <li>Sviluppo di concept di design, coordinamento con team interni e partner esterni, traduzione dei requisiti di brand identity in soluzioni concrete e funzionali.</li>
+          <li>Rafforzamento delle competenze di pianificazione di progetto, attenzione tecnica al dettaglio e gestione di commesse complesse con scadenze rigide.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-dot"></div>
+        <div class="job-title">Internship</div>
+        <div class="job-company">iGuzzini Illuminazione S.p.A.</div>
+        <div class="job-date">2017 – 2018</div>
+        <ul class="job-points">
+          <li>Supporto ad attività di analisi di mercato e ricerca competitiva, incluse valutazioni di benchmarking e posizionamento del prodotto.</li>
+          <li>Partecipazione alle fasi iniziali di design, space planning e valutazioni di fattibilità tecnica ed economica.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- EDUCATION -->
+<section class="section" id="education">
+  <div class="section-eyebrow">Formazione</div>
+  <h2 class="section-title">Istruzione</h2>
+  <div class="section-bar"></div>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-degree">Full-Stack Web Developer Bootcamp</div>
+      <div class="edu-school">Epicode School</div>
+      <div class="edu-year">2022</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">Master's Degree in Lighting Design & LED Technology</div>
+      <div class="edu-school">Politecnico di Milano</div>
+      <div class="edu-year">2016 – 2017</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">Single Course in "Lighting Design"</div>
+      <div class="edu-school">Politecnico di Milano</div>
+      <div class="edu-year">2015 – 2016</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">Bachelor's Degree in Industrial Design</div>
+      <div class="edu-school">Politecnico di Milano</div>
+      <div class="edu-year">2011 – 2015</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">Diploma, Liceo Scientifico</div>
+      <div class="edu-school">"I.I.S.S. Angelo Omodeo", Mortara (PV)</div>
+      <div class="edu-year">2006 – 2011</div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<div class="full-section" id="skills" style="background: var(--beige);">
+  <div class="section-inner">
+    <div class="section-eyebrow">Cosa so fare</div>
+    <h2 class="section-title">Competenze</h2>
+    <div class="section-bar"></div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-card-eyebrow">Project Management</div>
+        <div class="tags">
+          <span class="tag featured">Monday.com</span>
+          <span class="tag">Pianificazione</span>
+          <span class="tag">Resource Allocation</span>
+          <span class="tag">Timeline Control</span>
+          <span class="tag">Change Control</span>
+          <span class="tag">Client Management</span>
+          <span class="tag">Stakeholder Mgmt</span>
+          <span class="tag">Issue Resolution</span>
+          <span class="tag">Requirements Analysis</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-eyebrow">Web Development</div>
+        <div class="tags">
+          <span class="tag featured">HubSpot</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Angular</span>
+          <span class="tag">Bootstrap</span>
+          <span class="tag">SASS</span>
+          <span class="tag">WordPress</span>
+          <span class="tag">Git</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-eyebrow">Design & Tools</div>
+        <div class="tags">
+          <span class="tag">Photoshop</span>
+          <span class="tag">Illustrator</span>
+          <span class="tag">InDesign</span>
+          <span class="tag">AutoCAD</span>
+          <span class="tag">Autodesk Inventor</span>
+          <span class="tag">Dialux</span>
+          <span class="tag">KeyShot</span>
+          <span class="tag">Microsoft Office</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LANGUAGES + VOLUNTEER -->
+<section class="section" id="languages">
+  <div class="section-eyebrow">Comunicazione & Altro</div>
+  <h2 class="section-title">Lingue & Volontariato</h2>
+  <div class="section-bar"></div>
+  <div class="lang-grid">
+    <div class="lang-bars">
+      <div class="lang-row">
+        <div class="lang-header">
+          <span class="lang-name">Italiano</span>
+          <span class="lang-level">Madrelingua</span>
+        </div>
+        <div class="lang-track"><div class="lang-fill" style="width: 100%;"></div></div>
+      </div>
+      <div class="lang-row">
+        <div class="lang-header">
+          <span class="lang-name">Inglese</span>
+          <span class="lang-level">B2</span>
+        </div>
+        <div class="lang-track"><div class="lang-fill" style="width: 75%;"></div></div>
+      </div>
+      <div class="lang-row">
+        <div class="lang-header">
+          <span class="lang-name">Francese</span>
+          <span class="lang-level">B1</span>
+        </div>
+        <div class="lang-track"><div class="lang-fill" style="width: 50%;"></div></div>
+      </div>
+      <div class="lang-row">
+        <div class="lang-header">
+          <span class="lang-name">Tedesco</span>
+          <span class="lang-level">A1</span>
+        </div>
+        <div class="lang-track"><div class="lang-fill" style="width: 15%;"></div></div>
+      </div>
+    </div>
+    <div class="volunteer-card">
+      <div class="volunteer-title">Volunteer – Rifugio Animali Recanati</div>
+      <div class="volunteer-org">Rifugio Animali, Recanati</div>
+      <div class="volunteer-date">2018 – 2021</div>
+      <p class="volunteer-desc">Supporto continuativo per tre anni nella cura e nel benessere degli animali, contribuendo alle attività quotidiane del rifugio. Un'esperienza che ha rafforzato senso di responsabilità, empatia, affidabilità e capacità di lavoro in team in un contesto non-profit.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-name">Francesca Frattini</span>
+  <span>
+    <a href="mailto:francescafrattini092@gmail.com">francescafrattini092@gmail.com</a>
+    &nbsp;·&nbsp;
+    <a href="tel:+4917621904870">+49 17621904870</a>
+  </span>
+  <span>© 2026</span>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+</script>
+
+</body>
+</html>
